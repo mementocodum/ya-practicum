@@ -4,6 +4,8 @@ import {ProfilePage} from "../../../pages/ProfilePage/ProfilePage.js";
 import {EditProfilePage} from "../../../pages/EditProfilePage/EditProfilePage";
 import {ChangePasswordPage} from "../../../pages/ChangePasswordPage/ChangePasswordPage.js";
 import {ChatListPage} from "../../../pages/ChatListPage/ChatListPage.js";
+import {NotFoundPage} from "../../../pages/NotFoundPage/NotFoundPage.js";
+import {ServerErrorPage} from "../../../pages/ServerErrorPage/ServerErrorPage.js";
 
 export const routes = {
     login: {
@@ -26,12 +28,16 @@ export const routes = {
         path: '/change-password',
         element: ChangePasswordPage,
     },
-    'chat-list': {
-        path: '/chat-list',
+    'chats-list': {
+        path: '/chats-list',
         element: ChatListPage,
     },
-    notFound: {
+    'not-found': {
         path: '/not-found',
-        element: Element,
+        element: NotFoundPage,
+    },
+    error: {
+        path: '/error',
+        element: ServerErrorPage,
     }
 }

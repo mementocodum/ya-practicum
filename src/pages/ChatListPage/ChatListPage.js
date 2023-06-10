@@ -19,7 +19,12 @@ const data = {
 
     chats: [
         {
-
+            userName: 'Андрей Раяновский',
+            message: '',
+            avatar: '',
+            timeSent: '',
+            isSentByMe: true,
+            badgeCount: '2',
         },
     ],
     classes: cls,
