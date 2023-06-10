@@ -5,7 +5,7 @@ import {resolve} from "path";
 export default defineConfig({
     root: resolve(__dirname, 'static'),
     build: {
-        outDir: resolve(__dirname, 'build'),
+        outDir: resolve(__dirname, 'dist'),
     },
     plugins: [handlebars()],
     server: {
