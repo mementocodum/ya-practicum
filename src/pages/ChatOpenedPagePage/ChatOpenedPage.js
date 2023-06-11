@@ -1,5 +1,5 @@
-import * as cls from './ChatListPage.module.scss';
-import profilePageTemplate from './ChatListPageTemplate.hbs';
+import * as cls from './ChatOpenedPage.module.scss';
+import profilePageTemplate from './ChatOpenedPageTemplate.hbs';
 
 const data = {
     folders: [
@@ -94,4 +94,4 @@ const data = {
     classes: cls,
 }
 
-export const ChatListPage = () => profilePageTemplate(data);
+export const ChatOpenedPage = () => profilePageTemplate(data);

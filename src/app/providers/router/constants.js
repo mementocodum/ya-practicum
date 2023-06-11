@@ -6,6 +6,7 @@ import {ChangePasswordPage} from "../../../pages/ChangePasswordPage/ChangePasswo
 import {ChatListPage} from "../../../pages/ChatListPage/ChatListPage.js";
 import {NotFoundPage} from "../../../pages/NotFoundPage/NotFoundPage.js";
 import {ServerErrorPage} from "../../../pages/ServerErrorPage/ServerErrorPage.js";
+import {ChatOpenedPage} from "../../../pages/ChatOpenedPagePage/ChatOpenedPage.js";
 
 export const routes = {
     login: {
@@ -31,6 +32,10 @@ export const routes = {
     'chats-list': {
         path: '/chats-list',
         element: ChatListPage,
+    },
+    'chats-page': {
+        path: '/chats-list',
+        element: ChatOpenedPage,
     },
     'not-found': {
         path: '/not-found',
