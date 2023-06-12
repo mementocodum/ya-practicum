@@ -10,7 +10,7 @@
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  background: #EFEFEF;
+  background: var(--bacground-white);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -62,20 +62,20 @@
   }
 
   &Value {
-    color: #999;
+    color: var(--primary-grey);
   }
 
   a {
     text-decoration: none;
-    color: #5D54A4;
+    color: var(--primary-color);
   }
 
   &:not(&:last-child) {
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid var(--border-white);
   }
   &:last-child {
     a {
-      color: #FF0000;
+      color: var(--error-primary);
     }
   }
 }
@@ -95,6 +95,6 @@
     background: url('../../../static/Group 202.svg');
   }
   &:hover {
-    background-color: #5D54A4;
+    background-color: var(--primary-color);
   }
 }

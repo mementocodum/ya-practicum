@@ -1,6 +1,6 @@
 <div class="{{classes.wrapper}}">
     <div onclick='history.back()' class="{{classes.goBackBtn}}"></div>
-    <div class="{{classes.profileWrapper}}">
+    <form class="{{classes.profileWrapper}}">
         <div class="{{classes.profileFieldsWrapper}}">
             <div class="{{classes.userAvatar}}">
                 {{#if avatar}}
@@ -18,9 +18,9 @@
             <div class="{{classes.profileFields}}">
                 {{#each profileFields}}
                     <label class="{{../classes.profileField}}">
-                        <div class="{{../classes.profileFieldLabel}}">
+                        <span class="{{../classes.profileFieldLabel}}">
                             {{label}}
-                        </div>
+                        </span>
                         <input value="{{value}}" name="{{name}}" class="{{../classes.profileFieldValue}}">
                     </label>
                 {{/each}}
@@ -32,5 +32,5 @@
                 {{buttonLabel}}
             </button>
         </div>
-    </div>
+    </form>
 </div>

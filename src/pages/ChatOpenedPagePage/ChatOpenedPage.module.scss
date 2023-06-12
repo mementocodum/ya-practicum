@@ -7,7 +7,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #5D54A4;
+  background-color: var(--primary-color);
   width: 64px;
   height: 100%;
 }
@@ -35,14 +35,14 @@
 
   span {
     text-decoration: none;
-    color: #EFEFEF;
+    color: var(--bacground-white);
     font-size: 11px;
   }
 }
 
 .chatList {
   width: 310px;
-  border-right: 1px solid #EAEAEA;
+  border-right: 1px solid var(--border-white);
   padding: 20px 6px;
 }
 .profileLink {
@@ -70,7 +70,7 @@
 .search {
   margin-bottom: 16px;
   input {
-    background: #EFEFEF;
+    background: var(--bacground-white);
     outline: none;
     transition: ease-in-out 0.3s;
     width: 100%;
@@ -110,7 +110,7 @@
     width: 47px;
     height: 47px;
     display: block;
-    background: #efefef;
+    background: var(--bacground-white);
     border-radius: 50%;
     margin: 0 10px;
     img {
@@ -145,13 +145,13 @@
 
   &Time {
     font-size: 9px;
-    color: #999999;
+    color: var(--primary-grey);;
     margin-right: 6px;
   }
 
   &Message {
     font-size: 12px;
-    color: #999999;
+    color: var(--primary-grey);;
     line-height: 15px;
     overflow: hidden;
     white-space: break-spaces;
@@ -162,7 +162,7 @@
     height: 20px;
     font-size: 11px;
     color: #fff;
-    background: #5D54A4;
+    background: var(--primary-color);
     text-align: center;
     line-height: 20px;
     border-radius: 50%;
