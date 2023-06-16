@@ -1,0 +1,22 @@
+<div class="{{classes.wrapper}}">
+    <form class="{{classes.form}}">
+        <h2 class="{{classes.headerText}}">{{headerText}}</h2>
+        <div class="{{classes.fieldsWrapper}}">
+            {{#each fields}}
+                <label class="{{../classes.field}}" for="{{name}}">
+                    <span class="{{../classes.title}}">{{title}}</span>
+                    <input class="{{../classes.input}}" type="{{type}}" name="{{name}}" id="{{name}}" pattern="{{pattern}}">
+                    <span class="{{../classes.error}}">{{errorText}}</span>
+                </label>
+            {{/each}}
+        </div>
+
+        <div class="{{classes.controls}}">
+            <button class="{{classes.registerButton}}" type="submit">
+                {{registerText}}
+            </button>
+
+            <a class={{classes.loginButton}} href="/login">{{loginText}}</a>
+        </div>
+    </form>
+</div>
