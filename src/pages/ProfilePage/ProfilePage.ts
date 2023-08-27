@@ -9,7 +9,7 @@ import avatarImg from '../../../static/Union.svg';
 
 const exampleProfileData = dataMock.exampleProfileData as unknown;
 
-type TProfileElement = {
+export type TProfileElement = {
     label: string,
     value: string | number
 }

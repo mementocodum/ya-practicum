@@ -144,21 +144,19 @@ export default class Block {
 
     private _makePropsProxy(props: TProps) {
         const self = this;
-        // @ts-ignore
         return new Proxy(props, {
             get(target: TProps, prop: string) {
                 const value: unknown = target[prop];
                 return typeof value === 'function' ? value.bind(target) : value;
             },
             set(target: TProps, prop: string, value: unknown): boolean {
-                // @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 target[prop] = value;
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, self._prevProps, target);
                 return true;
             },
             deleteProperty() {
                 throw new Error('Нет доступа');
+                return false;
             },
         });
     }
@@ -188,8 +186,6 @@ export default class Block {
     public compile(props: TProps): DocumentFragment {
         const propsAndStubs = { ...props };
         Object.entries(this.children).forEach(([key, child]: [string, Block]) => {
-            // @typescript-eslint/ban-ts-comment
-            // @ts-ignore
             propsAndStubs[key] = `<div data-id="${child?._id}"></div>`;
         });
 

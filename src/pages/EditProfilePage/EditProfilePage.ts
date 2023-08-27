@@ -17,8 +17,9 @@ import Form from '../../shared/ui/Form/form';
 import Block, { TProps } from '../../shared/classComponents/block';
 import dataMock from '../../../static/exampleData.json';
 import avatarImg from '../../../static/Union.svg';
+import {TProfileElement} from "../ProfilePage/ProfilePage";
 
-const { exampleProfileData } = dataMock;
+const exampleProfileData: Record<string, TProfileElement> = dataMock.exampleProfileData;
 
 export default class ProfilePage extends Block {
     constructor(propsPage: TProps, templator: Function) {
@@ -160,12 +161,8 @@ const formDataProfile = new Form({
 });
 Object.values(formDataProfile.children).forEach((item: Block) => {
     if (item instanceof Input) {
-        // @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         if (exampleProfileData[item.props.name].value) {
             item.setProps({
-                // @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 value: exampleProfileData[item.props.name].value,
             });
         }
