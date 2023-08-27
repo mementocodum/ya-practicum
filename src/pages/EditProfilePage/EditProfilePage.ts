@@ -15,11 +15,11 @@ import { onBlur } from '../../shared/utils/validation/onBlur';
 import { onFocus } from '../../shared/utils/validation/onFocus';
 import Form from '../../shared/ui/Form/form';
 import Block, { TProps } from '../../shared/classComponents/block';
-import dataMock from '../../../static/exampleData.json';
+import dataMock from '../../../static/profiledata.json';
 import avatarImg from '../../../static/Union.svg';
 import { TProfileElement } from '../ProfilePage/ProfilePage';
 
-const exampleProfileData: Record<string, TProfileElement> = dataMock.exampleProfileData;
+const exampleProfileData: Record<string, TProfileElement> = dataMock;
 
 export default class ProfilePage extends Block {
     constructor(propsPage: TProps, templator: Function) {
