@@ -1,5 +1,5 @@
-@import "reset.scss";
-@import "variables.scss";
+@import "reset";
+@import "variables";
 
 body {
     font: var(--font-m);
@@ -39,9 +39,11 @@ main {
 
 .menuItem {
     padding: 5px;
+
     &::marker{
         display: none;
     }
+
     a {
         text-decoration: none;
         color: var(--primary-color);

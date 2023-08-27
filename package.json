@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "stylelint": "npx stylelint \"**/*.*css\" --fix"
   },
   "engines": {
     "npm": ">=7.0.0 <9.0.0",

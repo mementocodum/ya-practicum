@@ -3,7 +3,7 @@
   "rules": {
     "indentation": [4],
     "selector-class-pattern": null,
-    "no-plusplus": "off"
+    "declaration-block-single-line-max-declarations": 99
   },
   "ignoreFiles": [
     "dist/*",
