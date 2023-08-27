@@ -15,6 +15,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "baseUrl": "./src"
