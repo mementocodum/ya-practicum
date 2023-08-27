@@ -43,7 +43,7 @@ const inputDefaultProps = {
 };
 const formPassProfile = new Form({
     attr: {
-        class: '',
+        class: cls.form,
     },
     events: {
         focusin: onFocus,
