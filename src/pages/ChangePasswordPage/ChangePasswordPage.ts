@@ -15,7 +15,7 @@ const exampleProfileData = dataMock.exampleProfileData;
 
 export default class ProfilePage extends Block {
     constructor(propsPage: TProps, templator: Function) {
-        const { buttons, data } = propsPage;
+        const { buttons } = propsPage;
         const props: TProps = {
             ...propsPage,
             buttons: '',

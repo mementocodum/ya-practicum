@@ -17,7 +17,7 @@ export default class Block {
 
     public readonly _id: string | null = null;
 
-    private _reRender: boolean;
+    //private _reRender: boolean;
 
     private _prevProps: TProps;
 
