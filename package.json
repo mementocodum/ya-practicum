@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "vite",
-    "prebuild": "tsc --noEmit",
+    "prebuild": "tsc --noEmit && npm run lint:fix",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx,js}\"",

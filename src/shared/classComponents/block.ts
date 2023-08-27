@@ -155,7 +155,7 @@ export default class Block {
                 return true;
             },
             deleteProperty() {
-                throw new Error('Нет доступа');
+                console.log('Нет доступа');
                 return false;
             },
         });

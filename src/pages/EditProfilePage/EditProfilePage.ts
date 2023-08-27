@@ -17,7 +17,7 @@ import Form from '../../shared/ui/Form/form';
 import Block, { TProps } from '../../shared/classComponents/block';
 import dataMock from '../../../static/exampleData.json';
 import avatarImg from '../../../static/Union.svg';
-import {TProfileElement} from "../ProfilePage/ProfilePage";
+import { TProfileElement } from '../ProfilePage/ProfilePage';
 
 const exampleProfileData: Record<string, TProfileElement> = dataMock.exampleProfileData;
 
