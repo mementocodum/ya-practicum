@@ -1,0 +1,14 @@
+{{#if title}}
+    <span class="inputTitle">{{{title}}}</span>
+{{/if}}
+<input
+        name="{{name}}"
+        type="{{type}}"
+        placeholder="{{placeholder}}"
+        value="{{value}}"
+        maxLength="{{validation.maxLength}}"
+        minLength="{{validation.minLength}}"
+        data-idc="{{data_idc}}"
+        class="input"
+>
+<span class="error">{{error}}</span>

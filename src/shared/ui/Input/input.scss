@@ -1,0 +1,57 @@
+.label {
+  margin-bottom: 16px;
+  line-height: 1;
+  display: block;
+}
+.input {
+  width: 100%;
+  margin: 2px;
+  padding: 8px 4px;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  border: 1px solid var(--primary-color);
+  &:focus {
+    background-color: #eeeeee;
+  }
+
+  &Title {
+    font-size: 12px;
+    color: var(--primary-grey);
+    margin-left: 8px;
+  }
+}
+
+.error {
+  padding-top: 8px;
+  font-size: 12px;
+  color: var(--error-primary);
+}
+
+.avatarChange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  background-color: #000;
+  opacity: 0;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  .error,
+  input {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.inputFileDialogue {
+
+}

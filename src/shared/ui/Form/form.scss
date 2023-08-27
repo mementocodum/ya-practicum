@@ -1,0 +1,21 @@
+.form {
+  &Title {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  &Items {
+    margin-bottom: 4rem;
+  }
+
+  &Buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: auto;
+    text-align: center;
+  }
+
+}

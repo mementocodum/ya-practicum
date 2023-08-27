@@ -1,0 +1,39 @@
+.list {
+  list-style-type: none;
+
+  li {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+    padding: 10px 0;
+
+    &Flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      font-size: 13px;
+      width: 100%;
+    }
+  }
+}
+
+.listFlex {
+  list-style-type: none;
+  max-width: 36rem;
+  width: 100%;
+
+  li {
+      border-bottom: 1px solid var(--border-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      font-size: 13px;
+      width: 100%;
+
+      &:last-child {
+        border: transparent;
+      }
+    }
+}
