@@ -13,10 +13,11 @@
     "esModuleInterop": true,
     "noEmit": true,
     "sourceMap": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "baseUrl": "./src"
