@@ -1,14 +1,14 @@
-import * as cls from './LoginPage.module.scss'
-import loginPageTemplate from './LoginPageTemplate.hbs'
-import Block, {TProps} from "../../shared/classComponents/block";
-import Form from "../../shared/ui/Form/form";
-import Input from "../../shared/ui/Input/input";
-import Button from "../../shared/ui/Button/button";
-import {LOGIN_REGEXP, PASSWORD_REGEXP} from "../../shared/utils/validation/constants";
-import Link from "../../shared/ui/Link/link";
-import {onFocus} from "../../shared/utils/validation/onFocus";
-import {onBlur} from "../../shared/utils/validation/onBlur";
-import {onSubmit} from "../../shared/utils/validation/onSubmit";
+import * as cls from './LoginPage.module.scss';
+import loginPageTemplate from './LoginPageTemplate.hbs';
+import Block, { TProps } from '../../shared/classComponents/block';
+import Form from '../../shared/ui/Form/form';
+import Input from '../../shared/ui/Input/input';
+import Button from '../../shared/ui/Button/button';
+import { LOGIN_REGEXP, PASSWORD_REGEXP } from '../../shared/utils/validation/constants';
+import Link from '../../shared/ui/Link/link';
+import { onFocus } from '../../shared/utils/validation/onFocus';
+import { onBlur } from '../../shared/utils/validation/onBlur';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
 
 export default class AuthPage extends Block {
     constructor(props: TProps, templator: Function) {
@@ -46,8 +46,8 @@ const pageForm = new Form({
                 maxLength: 20,
                 minLength: 3,
                 mask: LOGIN_REGEXP,
-                validationMessage: 'Логин должен состоять из английских букв или спецсимволов(-_)'
-            }
+                validationMessage: 'Логин должен состоять из английских букв или спецсимволов(-_)',
+            },
         }),
         new Input({
             attr: {
@@ -63,8 +63,8 @@ const pageForm = new Form({
                 maxLength: 40,
                 minLength: 8,
                 mask: PASSWORD_REGEXP,
-                validationMessage: 'Неверный логин или пароль'
-            }
+                validationMessage: 'Неверный логин или пароль',
+            },
         }),
     ],
     buttons: [
@@ -79,7 +79,7 @@ const pageForm = new Form({
             text: 'Нет аккаунта?',
             attr: {
                 class: 'registerButton link',
-                href: '/register'
+                href: '/register',
             },
         }),
     ],

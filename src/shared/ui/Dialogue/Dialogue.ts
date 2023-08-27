@@ -1,7 +1,7 @@
-import Block, {TProps} from "../../classComponents/block";
+import Block, { TProps } from '../../classComponents/block';
 import dialogueTemplate from './DialogueTemplate.hbs';
-import Message from "../MessageItem/MessageItem";
-import {TMessage} from "../../../pages/ChatListPage/ChatListPage";
+import Message from '../MessageItem/MessageItem';
+import { TMessage } from '../../../pages/ChatListPage/ChatListPage';
 import mediaMock from '../../../../static/goose.jpg';
 import './Dialogue.scss';
 
@@ -44,13 +44,11 @@ export default class DialogActive extends Block {
         Object.assign(this.props, newProps);
     };
 
-
     // eslint-disable-next-line no-undef
     render(): string | DocumentFragment {
         return this.compile(this.props);
     }
 }
-
 
 function setGroupMsgToProps(props: TProps = {}): void {
     let currentGroupDate = '00.00.0000';

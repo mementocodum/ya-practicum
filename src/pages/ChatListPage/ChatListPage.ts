@@ -1,13 +1,13 @@
-import Block, {TProps} from "../../shared/classComponents/block";
+import Block, { TProps } from '../../shared/classComponents/block';
 import avatarDefault from '../../../static/Union.svg';
-import Form from "../../shared/ui/Form/form";
-import Input from "../../shared/ui/Input/input";
-import Button from "../../shared/ui/Button/button";
-import {onSubmit} from "../../shared/utils/validation/onSubmit";
-import DialogActive from "../../shared/ui/Dialogue/Dialogue";
-import Link from "../../shared/ui/Link/link";
+import Form from '../../shared/ui/Form/form';
+import Input from '../../shared/ui/Input/input';
+import Button from '../../shared/ui/Button/button';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
+import DialogActive from '../../shared/ui/Dialogue/Dialogue';
+import Link from '../../shared/ui/Link/link';
 import chatTemplate from './ChatListPageTemplate.hbs';
-import DialogsList from "../../shared/ui/DialogueList/DialogueList";
+import DialogsList from '../../shared/ui/DialogueList/DialogueList';
 import chatData from '../../../static/exampleData.json';
 import './ChatListPage.scss';
 
@@ -42,7 +42,6 @@ export type TDialog = {
     newMsg: number,
     login: string
 }
-
 
 export default class ChatPage extends Block {
     activeDialog: TDialog | undefined;
@@ -81,7 +80,6 @@ export default class ChatPage extends Block {
         sortedDialogs.sort((dialog1, dialog2) => (formattedDate(dialog1.lastMsg.date, dialog1.lastMsg.time).getTime() < formattedDate(dialog2.lastMsg.date, dialog2.lastMsg.time).getTime() ? 1 : -1));
         return sortedDialogs;
     }
-
 
     // eslint-disable-next-line class-methods-use-this
     searchActiveDialog(active: string | undefined): TDialog | undefined {
@@ -139,7 +137,6 @@ export default class ChatPage extends Block {
     }
 }
 
-
 const searchDialog = new Input({
     attr: {
         class: 'search',
@@ -174,7 +171,6 @@ const activeDialog = new DialogActive({
         },
     }),
 });
-
 
 const chatPage = new ChatPage({
     attr: {

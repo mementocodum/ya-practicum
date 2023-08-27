@@ -1,8 +1,7 @@
 import block from '../../classComponents/block';
-import Input from "../Input/input";
+import Input from '../Input/input';
 import templateForm from './formTemplate.hbs';
 import './form.scss';
-
 
 type TFormProps = {
     formTitle?: string,

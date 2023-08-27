@@ -1,7 +1,7 @@
-import Form from "../../ui/Form/form";
-import Block from "../../classComponents/block";
-import Input from "../../ui/Input/input";
-import {getConfirmField, validateFields} from "./validateFields";
+import Form from '../../ui/Form/form';
+import Block from '../../classComponents/block';
+import Input from '../../ui/Input/input';
+import { getConfirmField, validateFields } from './validateFields';
 
 export function onSubmit(self: Form, e: Event): void {
     e.preventDefault();

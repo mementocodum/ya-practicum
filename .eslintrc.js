@@ -24,5 +24,7 @@ module.exports = {
         }],
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'no-restricted-globals': 'off',
+        'no-plusplus': 'off'
     },
 };

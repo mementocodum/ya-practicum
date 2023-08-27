@@ -17,7 +17,7 @@ export default class Block {
 
     public readonly _id: string | null = null;
 
-    //private _reRender: boolean;
+    // private _reRender: boolean;
 
     private _prevProps: TProps;
 
@@ -49,7 +49,7 @@ export default class Block {
 
         this.templator = templator;
 
-        //this._reRender = false;
+        // this._reRender = false;
 
         this.props = this._makePropsProxy({ ...propsSimple, _id: this._id });
 
@@ -77,7 +77,7 @@ export default class Block {
     }
 
     public set prevProps(props: TProps) {
-        this._prevProps = {...props};
+        this._prevProps = { ...props };
     }
 
     public init(): void {
@@ -164,7 +164,7 @@ export default class Block {
 
     public _addEvents(): void {
         const { events = {} } = this.props;
-        //console.log(events,'ev', this.props)
+        // console.log(events,'ev', this.props)
         Object.keys(events).forEach((eventName) => {
             this.events[eventName] = events[eventName].bind('', this);
             this._element.addEventListener(eventName, this.events[eventName]);

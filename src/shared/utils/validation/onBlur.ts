@@ -1,5 +1,5 @@
-import Form from "../../ui/Form/form";
-import {getValidData, validateFields} from "./validateFields";
+import Form from '../../ui/Form/form';
+import { getValidData, validateFields } from './validateFields';
 
 export function onBlur(self: Form, e: Event): void {
     const [component, value = '', confirmValue] = getValidData(self, e);

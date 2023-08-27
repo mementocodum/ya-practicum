@@ -1,7 +1,7 @@
-import Block, {TProps} from "../../classComponents/block";
+import Block, { TProps } from '../../classComponents/block';
 import dialogueListTemplate from './DialogueListTemplate.hbs';
-import {TDialog} from "../../../pages/ChatListPage/ChatListPage";
-import {sliceLastMessage} from "../../utils/messagePrefix";
+import { TDialog } from '../../../pages/ChatListPage/ChatListPage';
+import { sliceLastMessage } from '../../utils/messagePrefix';
 import './DialogueList.scss';
 import avatarMock from '../../../../static/Union.svg';
 

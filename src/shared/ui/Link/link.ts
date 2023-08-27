@@ -1,5 +1,5 @@
 import './link.scss';
-import Block, {TProps} from "../../classComponents/block";
+import Block, { TProps } from '../../classComponents/block';
 
 export default class Link extends Block {
     constructor(props: TProps) {

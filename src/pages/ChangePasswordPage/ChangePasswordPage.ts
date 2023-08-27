@@ -1,17 +1,17 @@
 import * as cls from './ChangePasswordPage.module.scss';
 import profilePageTemplate from './ChangePasswordPageTemplate.hbs';
-import Button from "../../shared/ui/Button/button";
-import Input from "../../shared/ui/Input/input";
-import {PASSWORD_REGEXP} from "../../shared/utils/validation/constants";
-import {onSubmit} from "../../shared/utils/validation/onSubmit";
-import {onBlur} from "../../shared/utils/validation/onBlur";
-import {onFocus} from "../../shared/utils/validation/onFocus";
-import Form from "../../shared/ui/Form/form";
-import Block, {TProps} from "../../shared/classComponents/block";
+import Button from '../../shared/ui/Button/button';
+import Input from '../../shared/ui/Input/input';
+import { PASSWORD_REGEXP } from '../../shared/utils/validation/constants';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
+import { onBlur } from '../../shared/utils/validation/onBlur';
+import { onFocus } from '../../shared/utils/validation/onFocus';
+import Form from '../../shared/ui/Form/form';
+import Block, { TProps } from '../../shared/classComponents/block';
 import dataMock from '../../../static/exampleData.json';
-import avatarImg from '../../../static/Union.svg'
+import avatarImg from '../../../static/Union.svg';
 
-const exampleProfileData = dataMock.exampleProfileData;
+const { exampleProfileData } = dataMock;
 
 export default class ProfilePage extends Block {
     constructor(propsPage: TProps, templator: Function) {
@@ -33,7 +33,6 @@ export default class ProfilePage extends Block {
         return this.compile(this.props);
     }
 }
-
 
 const inputDefaultProps = {
     attr: {
@@ -115,13 +114,12 @@ const formPassProfile = new Form({
             text: 'Отменить',
             events: {
                 click: () => {
-                    location.replace('/profile')
+                    location.replace('/profile');
                 },
             },
         }),
     ],
 });
-
 
 const profilePage = new ProfilePage({
     type: 'view',

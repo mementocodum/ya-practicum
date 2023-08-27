@@ -1,19 +1,19 @@
 import * as cls from './RegistrationPage.module.scss';
 import registrationPageTemplate from './RegistrationPageTemplate.hbs';
-import Block, {TProps} from "../../shared/classComponents/block";
-import Form from "../../shared/ui/Form/form";
-import {onFocus} from "../../shared/utils/validation/onFocus";
-import {onBlur} from "../../shared/utils/validation/onBlur";
-import {onSubmit} from "../../shared/utils/validation/onSubmit";
-import Input from "../../shared/ui/Input/input";
+import Block, { TProps } from '../../shared/classComponents/block';
+import Form from '../../shared/ui/Form/form';
+import { onFocus } from '../../shared/utils/validation/onFocus';
+import { onBlur } from '../../shared/utils/validation/onBlur';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
+import Input from '../../shared/ui/Input/input';
 import {
     EMAIL_REGEXP,
     FIRST_NAME_REGEXP,
     LOGIN_REGEXP, PASSWORD_REGEXP, PHONE_REGEXP,
-    SECOND_NAME_REGEXP
-} from "../../shared/utils/validation/constants";
-import Button from "../../shared/ui/Button/button";
-import Link from "../../shared/ui/Link/link";
+    SECOND_NAME_REGEXP,
+} from '../../shared/utils/validation/constants';
+import Button from '../../shared/ui/Button/button';
+import Link from '../../shared/ui/Link/link';
 
 export default class RegPage extends Block {
     constructor(props: TProps, templator: Function) {

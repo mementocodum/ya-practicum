@@ -1,11 +1,11 @@
 import * as cls from './ProfilePage.module.scss';
 import profilePageTemplate from './ProfilePageTemplate.hbs';
-import Button from "../../shared/ui/Button/button";
-import Input from "../../shared/ui/Input/input";
-import Block, {TProps} from "../../shared/classComponents/block";
+import Button from '../../shared/ui/Button/button';
+import Input from '../../shared/ui/Input/input';
+import Block, { TProps } from '../../shared/classComponents/block';
 import dataMock from '../../../static/exampleData.json';
-import List from "../../shared/ui/ULList/ULList";
-import avatarImg from '../../../static/Union.svg'
+import List from '../../shared/ui/ULList/ULList';
+import avatarImg from '../../../static/Union.svg';
 
 const exampleProfileData = dataMock.exampleProfileData as unknown;
 
@@ -73,7 +73,7 @@ const profilePage = new ProfilePage({
             text: 'Изменить данные',
             events: {
                 click: () => {
-                    location.replace('/edit-profile')
+                    location.replace('/edit-profile');
                 },
             },
         }),
@@ -84,7 +84,7 @@ const profilePage = new ProfilePage({
             text: 'Изменить пароль',
             events: {
                 click: () => {
-                    location.replace('/change-password')
+                    location.replace('/change-password');
                 },
             },
         }),

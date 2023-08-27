@@ -1,6 +1,6 @@
-import * as cls from './ServerErrorPage.module.scss'
-import serverErrorPageTemplate from './ServerErrorPageTemplate.hbs'
-import Block, {TProps} from "../../shared/classComponents/block";
+import * as cls from './ServerErrorPage.module.scss';
+import serverErrorPageTemplate from './ServerErrorPageTemplate.hbs';
+import Block, { TProps } from '../../shared/classComponents/block';
 
 export default class ErrorPage extends Block {
     constructor(props: TProps, templator: Function) {
@@ -9,7 +9,6 @@ export default class ErrorPage extends Block {
 
     componentDidUpdate(oldProps: TProps, newProps: TProps) {
         return oldProps.errorCode !== newProps.errorCode || oldProps.errorText !== newProps.errorText;
-
     }
 
     render() {

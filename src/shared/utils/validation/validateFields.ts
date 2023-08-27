@@ -1,6 +1,6 @@
-import Input, {TValidation} from "../../ui/Input/input";
-import Form from "../../ui/Form/form";
-import Block from "../../classComponents/block";
+import Input, { TValidation } from '../../ui/Input/input';
+import Form from '../../ui/Form/form';
+import Block from '../../classComponents/block';
 
 export function validateFields(validData: TValidation = {}, value: string | number, confirmValue?: string | undefined): string {
     let error = '';

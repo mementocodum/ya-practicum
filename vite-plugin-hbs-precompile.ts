@@ -1,5 +1,5 @@
-//@ ts-nocheck
-import {PluginOption} from "vite";
+// @ ts-nocheck
+import { PluginOption } from 'vite';
 import Handlebars from 'handlebars';
 
 export default function handlebars(): PluginOption {
@@ -16,10 +16,11 @@ export default function handlebars(): PluginOption {
                 import Handlebars from 'handlebars/dist/handlebars.runtime.js';
 
                 export default Handlebars.template(${Handlebars.precompile(src)});
-            `
+            `;
+            // eslint-disable-next-line
             return {
-                code
-            }
-        }
-    }
+                code,
+            };
+        },
+    };
 }

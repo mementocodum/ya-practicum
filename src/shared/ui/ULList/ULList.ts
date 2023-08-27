@@ -1,5 +1,5 @@
 import './ULList.scss';
-import Block, {TProps} from "../../classComponents/block";
+import Block, { TProps } from '../../classComponents/block';
 
 export default class List extends Block {
     constructor(props: TProps) {
@@ -8,7 +8,7 @@ export default class List extends Block {
 
     render() {
         const fragment = document.createElement('template');
-        const { items = [], attr = {class: ''} } = this.props;
+        const { items = [], attr = { class: '' } } = this.props;
         const className = attr.class ?? '';
         if (!items) return fragment.content;
         items.forEach((item: Record<string, unknown>) => {

@@ -1,24 +1,24 @@
 import * as cls from './EditProfilePage.module.scss';
 import profilePageTemplate from './EditProfilePageTemplate.hbs';
-import Button from "../../shared/ui/Button/button";
-import Input from "../../shared/ui/Input/input";
+import Button from '../../shared/ui/Button/button';
+import Input from '../../shared/ui/Input/input';
 import {
     DISPLAY_NAME_REGEXP,
     EMAIL_REGEXP,
     FIRST_NAME_REGEXP,
     LOGIN_REGEXP,
     PHONE_REGEXP,
-    SECOND_NAME_REGEXP
-} from "../../shared/utils/validation/constants";
-import {onSubmit} from "../../shared/utils/validation/onSubmit";
-import {onBlur} from "../../shared/utils/validation/onBlur";
-import {onFocus} from "../../shared/utils/validation/onFocus";
-import Form from "../../shared/ui/Form/form";
-import Block, {TProps} from "../../shared/classComponents/block";
+    SECOND_NAME_REGEXP,
+} from '../../shared/utils/validation/constants';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
+import { onBlur } from '../../shared/utils/validation/onBlur';
+import { onFocus } from '../../shared/utils/validation/onFocus';
+import Form from '../../shared/ui/Form/form';
+import Block, { TProps } from '../../shared/classComponents/block';
 import dataMock from '../../../static/exampleData.json';
-import avatarImg from '../../../static/Union.svg'
+import avatarImg from '../../../static/Union.svg';
 
-const exampleProfileData = dataMock.exampleProfileData;
+const { exampleProfileData } = dataMock;
 
 export default class ProfilePage extends Block {
     constructor(propsPage: TProps, templator: Function) {
@@ -152,7 +152,7 @@ const formDataProfile = new Form({
             text: 'Отменить',
             events: {
                 click: () => {
-                    location.replace('/profile')
+                    location.replace('/profile');
                 },
             },
         }),
@@ -160,16 +160,15 @@ const formDataProfile = new Form({
 });
 Object.values(formDataProfile.children).forEach((item: Block) => {
     if (item instanceof Input) {
-        //@ts-ignore
+        // @ts-ignore
         if (exampleProfileData[item.props.name].value) {
             item.setProps({
-                //@ts-ignore
+                // @ts-ignore
                 value: exampleProfileData[item.props.name].value,
             });
         }
     }
 });
-
 
 const profilePage = new ProfilePage({
     type: 'view',
