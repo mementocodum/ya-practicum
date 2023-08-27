@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noEmit": true,
+    "sourceMap": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,

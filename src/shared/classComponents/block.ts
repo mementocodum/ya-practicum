@@ -49,7 +49,7 @@ export default class Block {
 
         this.templator = templator;
 
-        this._reRender = false;
+        //this._reRender = false;
 
         this.props = this._makePropsProxy({ ...propsSimple, _id: this._id });
 
