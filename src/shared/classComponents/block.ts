@@ -151,6 +151,7 @@ export default class Block {
                 return typeof value === 'function' ? value.bind(target) : value;
             },
             set(target: TProps, prop: string, value: unknown): boolean {
+                // @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 target[prop] = value;
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, self._prevProps, target);
@@ -164,7 +165,6 @@ export default class Block {
 
     public _addEvents(): void {
         const { events = {} } = this.props;
-        // console.log(events,'ev', this.props)
         Object.keys(events).forEach((eventName) => {
             this.events[eventName] = events[eventName].bind('', this);
             this._element.addEventListener(eventName, this.events[eventName]);
@@ -188,6 +188,7 @@ export default class Block {
     public compile(props: TProps): DocumentFragment {
         const propsAndStubs = { ...props };
         Object.entries(this.children).forEach(([key, child]: [string, Block]) => {
+            // @typescript-eslint/ban-ts-comment
             // @ts-ignore
             propsAndStubs[key] = `<div data-id="${child?._id}"></div>`;
         });

@@ -1,7 +1,7 @@
 module.exports = {
     extends: ['airbnb'],
-    parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint"],
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint'],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -25,6 +25,6 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'no-restricted-globals': 'off',
-        'no-plusplus': 'off'
+        'no-plusplus': 'off',
     },
 };

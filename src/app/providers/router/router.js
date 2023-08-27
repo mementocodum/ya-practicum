@@ -6,4 +6,4 @@ export const appRouter = () => {
     const root = document.getElementById('root');
     root.innerHTML = '';
     root.append(element());
-}
+};

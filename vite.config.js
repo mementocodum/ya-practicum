@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 import handlebars from "./vite-plugin-hbs-precompile.js";
-import {resolve} from "path";
+import { resolve } from "path";
 
 export default defineConfig({
     build: {
@@ -11,4 +11,4 @@ export default defineConfig({
         port: 3000,
         open: true,
     },
-})
+});
