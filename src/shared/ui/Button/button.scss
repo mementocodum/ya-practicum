@@ -1,0 +1,113 @@
+.button {
+    width: 100%;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #fff;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    transition: ease-in-out 0.3s;
+    margin-bottom: 9px;
+
+    &:hover {
+        background: #fff;
+        color: var(--primary-color);
+    }
+
+}
+
+.registerButton {
+    border: none;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 11px;
+    color: var(--secondary-grey);
+    text-align: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        background: var(--secondary-grey);
+        right:30%;
+        left: 70%;
+        transition: ease-in-out 0.5s;
+    }
+
+    &:hover {
+        &::after {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.buttonProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+
+    &::after {
+        content: "";
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../../../../static/GroupDots.svg");
+        width: 3px;
+        height: 15px;
+    }
+}
+
+.sendMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 28px;
+    max-height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+
+    &::before {
+        content: "";
+        width: 28px;
+        height: 28px;
+        margin-top: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/static/Group 202.svg");
+        rotate: 180deg;
+    }
+}
+
+.clipButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 28px;
+    max-height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+
+    &::before {
+        content: "";
+        width: 28px;
+        height: 28px;
+        margin-top: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/static/GroupClip.svg");
+    }
+
+}

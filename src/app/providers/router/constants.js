@@ -1,12 +1,11 @@
-import {LoginPage} from "../../../pages/LoginPage/LoginPage.js";
-import {RegistrationPage} from "../../../pages/RegistrationPage/RegistrationPage.js";
-import {ProfilePage} from "../../../pages/ProfilePage/ProfilePage.js";
-import {EditProfilePage} from "../../../pages/EditProfilePage/EditProfilePage";
-import {ChangePasswordPage} from "../../../pages/ChangePasswordPage/ChangePasswordPage.js";
-import {ChatListPage} from "../../../pages/ChatListPage/ChatListPage.js";
-import {NotFoundPage} from "../../../pages/NotFoundPage/NotFoundPage.js";
-import {ServerErrorPage} from "../../../pages/ServerErrorPage/ServerErrorPage.js";
-import {ChatOpenedPage} from "../../../pages/ChatOpenedPagePage/ChatOpenedPage.js";
+import { LoginPage } from '../../../pages/LoginPage/LoginPage.ts';
+import { RegistrationPage } from '../../../pages/RegistrationPage/RegistrationPage.ts';
+import { ProfileViewPage } from '../../../pages/ProfilePage/ProfilePage.ts';
+import { EditProfilePage } from '../../../pages/EditProfilePage/EditProfilePage';
+import { ChangePasswordPage } from '../../../pages/ChangePasswordPage/ChangePasswordPage.ts';
+import { ChatListPage } from '../../../pages/ChatListPage/ChatListPage.ts';
+import { NotFoundPage } from '../../../pages/NotFoundPage/NotFoundPage.ts';
+import { ServerErrorPage } from '../../../pages/ServerErrorPage/ServerErrorPage.ts';
 
 export const routes = {
     login: {
@@ -19,7 +18,7 @@ export const routes = {
     },
     profile: {
         path: '/profile',
-        element: ProfilePage,
+        element: ProfileViewPage,
     },
     'edit-profile': {
         path: '/edit-profile',
@@ -33,10 +32,6 @@ export const routes = {
         path: '/chats-list',
         element: ChatListPage,
     },
-    'chats-page': {
-        path: '/chats-list',
-        element: ChatOpenedPage,
-    },
     'not-found': {
         path: '/not-found',
         element: NotFoundPage,
@@ -44,5 +39,5 @@ export const routes = {
     error: {
         path: '/error',
         element: ServerErrorPage,
-    }
-}
+    },
+};
