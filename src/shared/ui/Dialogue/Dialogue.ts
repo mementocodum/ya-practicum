@@ -1,73 +1,96 @@
 import Block, { TProps } from '../../classComponents/block';
 import dialogueTemplate from './DialogueTemplate.hbs';
-import Message from '../MessageItem/MessageItem';
 import { TMessage } from '../../../pages/ChatListPage/ChatListPage';
-import mediaMock from '../../../../static/goose.jpg';
+import avatarMock from '../../../../static/Union.svg';
 import './Dialogue.scss';
+import Store, { Chat, State } from '../../classComponents/store';
+import { parseDateAndTime } from '../../utils/parseDateAndTime';
+import { connect } from '../../utils/connectHOC';
 
-export default class DialogActive extends Block {
+class DialogActive extends Block {
+    currentChat: any;
+
+    // eslint-disable-next-line no-undef
+    _dialogWindow: null | HTMLElement = null;
+
+    static mapStateToProps(state: State): TProps {
+        let props = {};
+        if (state?.chats) {
+            props = {
+                currentChat: state?.currentChat?.chat,
+                messages: state.currentChat.messages,
+                scroll: state.currentChat.scroll,
+                attr: {
+                    class: `currentDialog${state.currentChat?.isLoading ? ' loading' : ' '}${state.currentChat?.isLoadingOldMsg ? ' loading-old-msg' : ''}`,
+                },
+            };
+        }
+        return props;
+    }
+
     constructor(allProps: TProps) {
         const props: TProps = {
             ...allProps,
             messages: '',
-            avatar: allProps.avatar ? allProps.avatar : '',
+            avatar: allProps.avatar ? allProps.avatar : avatarMock,
         };
-
-        setGroupMsgToProps(props);
 
         super('div', props, dialogueTemplate);
     }
 
-    componentDidUpdate(oldProps: TProps, newProps: TProps): boolean {
-        if (oldProps.dialog !== newProps.dialog) {
-            const children = this.getChildren(newProps).children ?? {};
-            this.children = {
-                btn: this.children.btn,
-                newMessage: this.children.newMessage,
-                ...children,
-            };
-        }
-        return true;
+    public scrollBottom(): void {
+        this.getContent().scrollBy(0, this.getContent().scrollHeight + 100);
     }
 
-    setProps = (nextProps: TProps): void => {
+    public scrollTop(): void {
+        this.getContent().scrollBy(0, -document.body.scrollHeight);
+    }
+
+    public setProps = (nextProps: TProps): void => {
         if (!nextProps) {
             return;
         }
-        this.prevProps = { ...this.props };
+
+        const messages = this.formattedMessages(nextProps?.messages);
+
         const newProps = {
-            ...this.props,
             ...nextProps,
-            messages: '',
+            messages,
         };
-        setGroupMsgToProps(newProps);
+
+        this._prevProps = { ...this.props };
         Object.assign(this.props, newProps);
     };
+
+    // eslint-disable-next-line class-methods-use-this
+    private formattedMessages(messages: Array<Record<string, string | number>>): Array<string | Chat> | [] {
+        if (!messages) return [];
+        const formattedMessages: (string | Chat)[] = [];
+        let currentGroupDate = '00.00.0000';
+        const currentUserId = Store.getState()?.user?.id;
+
+        [...messages].reverse().forEach((item: TMessage) => {
+            const timeMsg = item.time ?? '';
+            const { date, time } = parseDateAndTime(timeMsg);
+            if (currentGroupDate !== date) {
+                currentGroupDate = date;
+                formattedMessages.push({ dateGroup: date });
+            }
+            const msgType = currentUserId === item?.user_id ? 'out' : 'in';
+            const msgClass = `message msg-${msgType} ${item.content ? 'msg-text' : ''} ${item?.file ? 'msg-media' : ''}`;
+
+            formattedMessages.push({
+                ...item,
+                time,
+                msgClass,
+            });
+        });
+        return formattedMessages;
+    }
 
     // eslint-disable-next-line no-undef
     render(): string | DocumentFragment {
         return this.compile(this.props);
     }
 }
-
-function setGroupMsgToProps(props: TProps = {}): void {
-    let currentGroupDate = '00.00.0000';
-    const dialog = props.dialog ?? [];
-    dialog.forEach((item: TMessage) => {
-        if (currentGroupDate !== item.date) {
-            currentGroupDate = item.date;
-            props.messages += `<div class="dialogDateItem">${item.date}</div>`;
-        }
-        const media = item.media ? mediaMock : '';
-        const newMSG = new Message({
-            ...item,
-            media,
-            attr: {
-                class: `message msg-${item.type} ${item.text ? 'msg-text' : ''} ${item.media ? 'msg-media' : ''}`,
-            },
-        });
-        const id = newMSG._id ?? '';
-        props[id] = newMSG;
-        props.messages += `<div data-id="${id}"></div>`;
-    });
-}
+export default connect(DialogActive);

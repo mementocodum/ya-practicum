@@ -5,35 +5,43 @@ const QUERY_TYPE = {
     DELETE: 'DELETE',
 };
 
-type TOptionsData = Record<string, string | number>
+export type TOptionsData = Record<string, string | number | Array<string | number>>;
 type TOptions = {
     headers?: Record<string, string>,
-    data?: TOptionsData,
+    data?: TOptionsData | FormData,
     type?: string,
     timeout?: number
 }
 type HTTPMethod = (url: string, options?: TOptions) => Promise<unknown>
 type HTTPRequest = (url: string, options?: TOptions, timeout?: number) => Promise<unknown | void>
 
-function queryStringify(data: TOptionsData): string {
-    if (!(data instanceof Object)) {
-        throw new Error('Дата не объект');
+// eslint-disable-next-line no-undef
+function queryStringify(data: TOptionsData | FormData): string {
+    // eslint-disable-next-line no-undef
+    if (data instanceof FormData) return '';
+    if (typeof data !== 'object') {
+        throw new Error('Data must be object');
     }
-
-    const keys = Object.keys(data).map((key) => `${key}=${data[key]}`).join('&');
-    return keys ? `?${keys}` : '';
+    const keys = Object.keys(data);
+    return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
 }
 
 export default class HTTPTransport {
-    static get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(url, { ...options, type: QUERY_TYPE.GET }, options.timeout);
+    baseUrl: string = '';
 
-    static post: HTTPMethod = (url = '', options: TOptions = {}) => this.request(url, { ...options, type: QUERY_TYPE.POST }, options.timeout);
+    constructor(baseUrl: string) {
+        this.baseUrl = baseUrl;
+    }
 
-    static put: HTTPMethod = (url = '', options: TOptions = {}) => this.request(url, { ...options, type: QUERY_TYPE.PUT }, options.timeout);
+    public get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.GET }, options.timeout);
 
-    static delete: HTTPMethod = (url = '', options: TOptions = {}) => this.request(url, { ...options, type: QUERY_TYPE.DELETE }, options.timeout);
+    public post: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.POST }, options.timeout);
 
-    static request: HTTPRequest = (url = '', options = {}, timeout = 10000): Promise<unknown | void> => {
+    public put: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.PUT }, options.timeout);
+
+    public delete: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.DELETE }, options.timeout);
+
+    public request: HTTPRequest = (url = '', options = {}, timeout = 10000): Promise<unknown | void> => {
         const { headers = {}, type = QUERY_TYPE.GET, data } = options;
 
         return new Promise((resolve, reject) => {
@@ -46,6 +54,7 @@ export default class HTTPTransport {
                     ? `${url}${queryStringify(data)}`
                     : url,
             );
+            xhr.withCredentials = true;
             Object.keys(headers).forEach((key) => {
                 xhr.setRequestHeader(key, headers[key]);
             });
@@ -63,7 +72,8 @@ export default class HTTPTransport {
             if (queryParams || !data) {
                 xhr.send();
             } else {
-                xhr.send(JSON.stringify(data));
+                const sendData = data instanceof FormData ? data : JSON.stringify(data);
+                xhr.send(sendData);
             }
         });
     };

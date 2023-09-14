@@ -2,9 +2,18 @@ import * as cls from './ServerErrorPage.module.scss';
 import serverErrorPageTemplate from './ServerErrorPageTemplate.hbs';
 import Block, { TProps } from '../../shared/classComponents/block';
 
-export default class ErrorPage extends Block {
-    constructor(props: TProps, templator: Function) {
-        super('main', props, templator);
+class ErrorPage extends Block {
+    constructor(props: TProps) {
+        props = {
+            attr: {
+                class: cls.wrapper,
+            },
+            errorCode: 500,
+            errorText: 'Мы уже чиним',
+            backBtn: 'Назад к чатам',
+            classes: cls,
+        };
+        super('main', props, serverErrorPageTemplate);
     }
 
     componentDidUpdate(oldProps: TProps, newProps: TProps) {
@@ -16,14 +25,4 @@ export default class ErrorPage extends Block {
     }
 }
 
-const error500 = new ErrorPage({
-    attr: {
-        class: cls.wrapper,
-    },
-    errorCode: 500,
-    errorText: 'Мы уже чиним',
-    backBtn: 'Назад к чатам',
-    classes: cls,
-}, serverErrorPageTemplate);
-
-export const ServerErrorPage = () => error500.getContent();
+export default ErrorPage;

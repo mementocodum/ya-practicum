@@ -10,11 +10,14 @@ type TFormProps = {
     items: Array<block>,
     buttons: Array<block>,
     classes?: string,
+    controller?: Function,
 }
 type TProps = {
     [index: string]: any,
 }
 export default class Form extends block {
+    controller: Function | null;
+
     constructor(formProps: TFormProps, templator: Function = templateForm) {
         const { buttons = [], items = [], ...propsOther } = formProps;
         const props: TProps = {
@@ -35,6 +38,10 @@ export default class Form extends block {
         });
 
         super('form', props, templator);
+
+        if (props.controller) {
+            this.controller = props.controller;
+        }
     }
 
     getFormData(): void {
@@ -45,8 +52,19 @@ export default class Form extends block {
                 formData[child.props.name] = String(child.currentValue);
             }
         });
+        if (this.controller) {
+            this.controller(formData);
+        }
         // eslint-disable-next-line no-console
         console.log(formData);
+    }
+
+    resetForm() {
+        Object.values(this.children).forEach((child) => {
+            if (child instanceof Input) {
+                child.reset();
+            }
+        });
     }
 
     render() {

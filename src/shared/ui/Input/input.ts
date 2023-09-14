@@ -52,6 +52,13 @@ export default class Input extends block {
         self.currentValue = target.value;
     }
 
+    reset(): void {
+        const element = this.getContent().querySelector('input') as HTMLInputElement | null;
+        if (!element) return;
+        element.value = '';
+        this.currentValue = '';
+    }
+
     _addEvents(): void {
         this.events.setCurrentValue = this.setCurrentValue.bind('', this);
         this._element.addEventListener('input', this.events.setCurrentValue);

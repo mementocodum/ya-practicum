@@ -19,7 +19,7 @@ export default class Block {
 
     // private _reRender: boolean;
 
-    private _prevProps: TProps;
+    public _prevProps: TProps;
 
     public _element: HTMLElement;
 

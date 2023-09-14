@@ -1,4 +1,4 @@
-{{#if messages}}
+{{#if currentChat}}
     <div class="topControls">
         <div class="avatar"> <img src="{{avatar}}" alt="Аватар пользователя {{login}}"> </div>
         <div class="login">{{login}}</div>
@@ -7,7 +7,27 @@
         </div>
     </div>
     <div class="dialogWrapper">
-        {{{messages}}}
+        {{#each messages}}
+            {{#if this.dateGroup}}
+                <div class="dialogDateItem">{{this.dateGroup}}</div>
+            {{else }}
+                <div class="{{this.msgClass}}">
+                    {{#if this.content }}
+                        <div class="message-text">{{this.content}}</div>
+                    {{/if}}
+                    {{#if this.file }}
+                        <div class="message-media"><img src="{{this.file}}" alt="Вложение"></div>
+                    {{/if}}
+
+                    <div class="message-send">
+                        <span class="read-status read-{{this.is_read}}"></span>
+                        <span class="send-time">
+                            {{this.time}}
+                        </span>
+                    </div>
+                </div>
+            {{/if }}
+        {{/each}}
     </div>
     <div class="footerControls">
         {{{newMessage}}}
