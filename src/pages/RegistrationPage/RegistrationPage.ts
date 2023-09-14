@@ -1,11 +1,11 @@
 import * as cls from './RegistrationPage.module.scss';
 import registrationPageTemplate from './RegistrationPageTemplate.hbs';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block from '../../shared/classComponents/Block';
 import Form from '../../shared/ui/Form/form';
 import { onFocus } from '../../shared/utils/validation/onFocus';
 import { onBlur } from '../../shared/utils/validation/onBlur';
 import { onSubmit } from '../../shared/utils/validation/onSubmit';
-import Input from '../../shared/ui/Input/input';
+import Input from '../../shared/ui/Input/Input';
 import {
     EMAIL_REGEXP,
     FIRST_NAME_REGEXP,

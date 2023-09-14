@@ -1,4 +1,4 @@
-import block from '../../classComponents/block';
+import block from '../../classComponents/Block';
 import './input.scss';
 import templateInput from './InputTemplate.hbs';
 

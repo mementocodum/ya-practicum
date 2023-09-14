@@ -1,15 +1,15 @@
 import * as cls from './LoginPage.module.scss';
 import loginPageTemplate from './LoginPageTemplate.hbs';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block from '../../shared/classComponents/Block';
 import Form from '../../shared/ui/Form/form';
-import Input from '../../shared/ui/Input/input';
+import Input from '../../shared/ui/Input/Input';
 import Button from '../../shared/ui/Button/button';
 import { LOGIN_REGEXP, PASSWORD_REGEXP } from '../../shared/utils/validation/constants';
 import Link from '../../shared/ui/Link/link';
 import { onFocus } from '../../shared/utils/validation/onFocus';
 import { onBlur } from '../../shared/utils/validation/onBlur';
 import { onSubmit } from '../../shared/utils/validation/onSubmit';
-import { State } from '../../shared/classComponents/store';
+import { State } from '../../shared/classComponents/Store';
 import { connect } from '../../shared/utils/connectHOC';
 import AuthController from '../../app/controllers/AuthController';
 

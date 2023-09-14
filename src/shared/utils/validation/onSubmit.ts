@@ -1,6 +1,6 @@
 import Form from '../../ui/Form/form';
-import Block from '../../classComponents/block';
-import Input from '../../ui/Input/input';
+import Block from '../../classComponents/Block';
+import Input from '../../ui/Input/Input';
 import { getConfirmField, validateFields } from './validateFields';
 
 export function onSubmit(self: Form, e: Event): void {

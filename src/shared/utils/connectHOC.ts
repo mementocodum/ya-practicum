@@ -1,4 +1,4 @@
-import store, { StoreEvents } from '../classComponents/store';
+import store, { StoreEvents } from '../classComponents/Store';
 
 export function connect(Component: any): any {
     return class extends Component {

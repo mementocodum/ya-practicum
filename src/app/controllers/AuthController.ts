@@ -1,7 +1,7 @@
 import BaseController from './BaseController';
 import { TOptionsData } from '../../shared/classComponents/HTTPTransport';
 import authApi from '../../shared/api/AuthApi';
-import { MESSENGER } from '../../shared/classComponents/router';
+import { MESSENGER } from '../../shared/classComponents/Router';
 
 class AuthController extends BaseController {
     public async createUser(data: TOptionsData): Promise<void> {

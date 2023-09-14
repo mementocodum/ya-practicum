@@ -1,9 +1,9 @@
-import Block, { TProps } from '../../classComponents/block';
+import Block, { TProps } from '../../classComponents/Block';
 import dialogueTemplate from './DialogueTemplate.hbs';
 import { TMessage } from '../../../pages/ChatListPage/ChatListPage';
 import avatarMock from '../../../../static/Union.svg';
 import './Dialogue.scss';
-import Store, { Chat, State } from '../../classComponents/store';
+import Store, { Chat, State } from '../../classComponents/Store';
 import { parseDateAndTime } from '../../utils/parseDateAndTime';
 import { connect } from '../../utils/connectHOC';
 

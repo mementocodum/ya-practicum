@@ -1,5 +1,5 @@
-import block from '../../classComponents/block';
-import Input from '../Input/input';
+import block from '../../classComponents/Block';
+import Input from '../Input/Input';
 import templateForm from './formTemplate.hbs';
 import './form.scss';
 

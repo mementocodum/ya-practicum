@@ -1,10 +1,11 @@
 import * as cls from './ServerErrorPage.module.scss';
 import serverErrorPageTemplate from './ServerErrorPageTemplate.hbs';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block, { TProps } from '../../shared/classComponents/Block';
 
 class ErrorPage extends Block {
     constructor(props: TProps) {
         props = {
+            ...props,
             attr: {
                 class: cls.wrapper,
             },

@@ -1,6 +1,5 @@
 import Block from './Block';
 import Store from './Store';
-import { isEqual } from '../utils/myDash/isEqual';
 import { render } from '../utils/myDash/render';
 
 export default class Route {

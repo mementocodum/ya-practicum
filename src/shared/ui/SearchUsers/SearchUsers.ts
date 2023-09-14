@@ -1,6 +1,6 @@
-import Input from '../input/input';
+import Input from '../Input/Input';
 import './searchUsers.scss';
-import Block, { TProps } from '../../classComponents/block';
+import Block, { TProps } from '../../classComponents/Block';
 
 export type TSearchItem = Record<string, string | number | null | boolean>;
 

@@ -1,11 +1,11 @@
 import './ProfilePage.scss';
 import profilePageTemplate from './ProfilePageTemplate.hbs';
 import Button from '../../shared/ui/Button/button';
-import Input from '../../shared/ui/Input/input';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Input from '../../shared/ui/Input/Input';
+import Block, { TProps } from '../../shared/classComponents/Block';
 import avatarImg from '../../../static/Union.svg';
 import AuthController from '../../app/controllers/AuthController';
-import { State } from '../../shared/classComponents/store';
+import { State } from '../../shared/classComponents/Store';
 import { resourcesUrl } from '../../shared/constants';
 import { connect } from '../../shared/utils/connectHOC';
 import UsersController from '../../app/controllers/UsersController';
@@ -288,7 +288,7 @@ class ProfilePage extends Block {
     }
 
     public componentDidUpdate(_oldProps: TProps, _newProps: TProps): boolean {
-        Object.values(this.children.editProfileData.children).forEach((item: Block) => {
+        Object.values(this.children.editProfileData.children).forEach((item: unknown) => {
             if (item instanceof Input) {
                 if (_newProps.listDataProfile[item.props.name]) {
                     item.setProps({

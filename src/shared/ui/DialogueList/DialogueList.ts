@@ -1,9 +1,9 @@
-import Block, { TProps } from '../../classComponents/block';
+import Block, { TProps } from '../../classComponents/Block';
 import dialogueListTemplate from './DialogueListTemplate.hbs';
 import { sliceLastMessage } from '../../utils/messagePrefix';
 import './DialogueList.scss';
 import avatarMock from '../../../../static/Union.svg';
-import Store, { Chat, State } from '../../classComponents/store';
+import Store, { Chat, State } from '../../classComponents/Store';
 import { connect } from '../../utils/connectHOC';
 import { parseDateAndTime } from '../../utils/parseDateAndTime';
 
@@ -58,7 +58,10 @@ class DialogsList extends Block {
             });
         });
         return compilesDialogs?.sort((a, b) => {
-            if (a.last_message_full_time > b.last_message_full_time) {
+            if(!a?.last_message_full_time || !b?.last_message_full_time) {
+                return 1;
+            }
+            if (a?.last_message_full_time > b?.last_message_full_time) {
                 return -1;
             } return 1;
         }) || [];

@@ -1,7 +1,7 @@
 import { baseBlock } from '../constants';
-import Block from './block';
-import Route from './route';
-import Store from './store';
+import Block from './Block';
+import Route from './Route';
+import Store from './Store';
 
 export const AUTH = '/';
 export const SIGNUP = '/sign-up';

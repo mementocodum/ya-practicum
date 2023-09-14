@@ -1,7 +1,7 @@
-import Block from '../../classComponents/block';
+import Block from '../../classComponents/Block';
 
-export function render(query: string, block: Block): void {
-    const root = document.getElementById('root');
+export function render(query: string | undefined, block: Block): void {
+    const root = document.getElementById(query || 'root');
     if (root) {
         root.innerHTML = '';
         // eslint-disable-next-line new-cap

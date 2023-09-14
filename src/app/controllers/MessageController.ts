@@ -1,10 +1,10 @@
 /* eslint-disable consistent-return */
 import { wssBaseUrl } from '../../shared/constants';
-import Store from '../../shared/classComponents/store';
 import { searchObjInArray } from '../../shared/utils/myDash/deepClone';
 import ChatsApi from '../../shared/api/ChatsApi';
-import router from '../../shared/classComponents/router';
 import { activeDialog } from '../../pages/ChatListPage/ChatListPage';
+import Store from "../../shared/classComponents/Store";
+import router from "../../shared/classComponents/Router";
 
 export type wssConnectOptions = {
     userId: number | string,
@@ -72,7 +72,7 @@ class MessageController {
         if (!this.socket) return;
         clearInterval(this._ping);
         this._allMessage = false;
-        this._ping = undefined as ReturnType<typeof setInterval>;
+        this._ping = undefined as unknown as ReturnType<typeof setInterval>;
         this._offset = 0;
 
         this._removeEvents();

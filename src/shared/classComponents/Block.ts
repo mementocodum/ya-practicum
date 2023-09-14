@@ -1,5 +1,5 @@
 import { v4 as makeUUID } from 'uuid';
-import EventBus from './eventBus';
+import EventBus from './EventBus';
 
 export interface TProps {
     [index: string]: any,

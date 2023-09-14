@@ -1,6 +1,6 @@
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block, { TProps } from '../../shared/classComponents/Block';
 import Form from '../../shared/ui/Form/form';
-import Input from '../../shared/ui/Input/input';
+import Input from '../../shared/ui/Input/Input';
 import Button from '../../shared/ui/Button/button';
 import DialogActive from '../../shared/ui/Dialogue/Dialogue';
 import Link from '../../shared/ui/Link/link';
@@ -95,7 +95,7 @@ const newChatButton = new Button({
     text: 'Создать новый чат',
     events: {
         click: () => {
-            createChat.bind(ChatsController)(prompt('Введите название чата'));
+            createChat.bind(ChatsController)(prompt('Введите название чата') as string);
         },
     },
 });
@@ -126,7 +126,7 @@ export const activeDialog = new DialogActive({
                 },
                 validation: {
                     required: true,
-                    minlength: 1,
+                    minLength: 1,
                 },
                 name: 'message',
                 placeholder: 'Сообщение',

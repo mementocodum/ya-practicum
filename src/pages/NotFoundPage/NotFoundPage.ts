@@ -1,5 +1,5 @@
 import * as cls from './NotFoundPage.module.scss';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block, { TProps } from '../../shared/classComponents/Block';
 import notFoundPageTemplate from './NotFoundPageTemplate.hbs';
 
 class ErrorPage extends Block {

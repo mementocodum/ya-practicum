@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-alert */
 import BaseController from './BaseController';
-import Store from '../../shared/classComponents/store';
 import ChatsApi from '../../shared/api/ChatsApi';
 import MessageController from './MessageController';
+import Store from "../../shared/classComponents/Store";
 
 class ChatsController extends BaseController {
     public async getAllChats(): Promise<void> {

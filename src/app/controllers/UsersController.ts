@@ -1,7 +1,7 @@
 import BaseController from './BaseController';
 import { TOptionsData } from '../../shared/classComponents/HTTPTransport';
 import UsersApi from '../../shared/api/UsersApi';
-import Block from '../../shared/classComponents/block';
+import Block from '../../shared/classComponents/Block';
 
 class UsersController extends BaseController {
     public async changeProfileData(data: TOptionsData) {
