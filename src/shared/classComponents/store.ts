@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import EventBus from './EventBus';
 import { set } from '../utils/myDash/set';
 

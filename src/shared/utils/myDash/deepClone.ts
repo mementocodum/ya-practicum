@@ -1,3 +1,10 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-undef */
+/* eslint-disable no-continue */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-return-assign */
+/* eslint-disable no-plusplus */
+
 export function searchObjInArray(array: Array<Record<string, string | number | unknown>>, key: string, value: string | number): Record<string, string | number> | undefined {
     for (let i = 0; i < array.length; i++) {
         const item = array[i];

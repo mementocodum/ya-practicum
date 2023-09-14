@@ -1,3 +1,10 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-undef */
+/* eslint-disable no-continue */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-return-assign */
+/* eslint-disable no-plusplus */
+
 type PlainObject<T = any> = {
     [k in string]: T;
 };

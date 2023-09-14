@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { wssBaseUrl } from '../../shared/constants';
 import Store from '../../shared/classComponents/store';
 import { searchObjInArray } from '../../shared/utils/myDash/deepClone';

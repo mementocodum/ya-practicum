@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-alert */
 import BaseController from './BaseController';
 import Store from '../../shared/classComponents/store';
 import ChatsApi from '../../shared/api/ChatsApi';
@@ -95,7 +97,9 @@ class ChatsController extends BaseController {
             return;
         }
         if (!chat) return;
-        return await this.addUser(Number(chat), Number(id));
+        const res = await this.addUser(Number(chat), Number(id));
+        // eslint-disable-next-line consistent-return
+        return res;
     }
 }
 
