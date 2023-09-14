@@ -7,9 +7,9 @@ import AuthPage from './src/pages/LoginPage/LoginPage';
 import Store from './src/shared/classComponents/Store';
 import RegPage from './src/pages/RegistrationPage/RegistrationPage';
 import ProfilePage from './src/pages/ProfilePage/ProfilePage';
-import ServerErrorPage from './src/pages/ServerErrorPage/ServerErrorPage';
-import NotFoundPage from './src/pages/NotFoundPage/NotFoundPage';
+import { NotFoundPage } from './src/pages/NotFoundPage/NotFoundPage';
 import ChatPage from './src/pages/ChatListPage/ChatListPage';
+import { ServerErrorPage } from './src/pages/ServerErrorPage/ServerErrorPage';
 
 export default function initApp() {
     AuthController.getUserInfo().then(() => {

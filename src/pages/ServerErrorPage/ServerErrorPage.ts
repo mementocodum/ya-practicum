@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import * as cls from './ServerErrorPage.module.scss';
 import serverErrorPageTemplate from './ServerErrorPageTemplate.hbs';
 import Block, { TProps } from '../../shared/classComponents/Block';
@@ -9,8 +10,6 @@ class ErrorPage extends Block {
             attr: {
                 class: cls.wrapper,
             },
-            errorCode: 500,
-            errorText: 'Мы уже чиним',
             backBtn: 'Назад к чатам',
             classes: cls,
         };
@@ -26,4 +25,11 @@ class ErrorPage extends Block {
     }
 }
 
-export default ErrorPage;
+export class ServerErrorPage extends ErrorPage {
+    constructor() {
+        super({
+            errorCode: 500,
+            errorText: 'Мы уже чиним',
+        });
+    }
+}
