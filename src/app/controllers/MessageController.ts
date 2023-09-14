@@ -3,8 +3,8 @@ import { wssBaseUrl } from '../../shared/constants';
 import { searchObjInArray } from '../../shared/utils/myDash/deepClone';
 import ChatsApi from '../../shared/api/ChatsApi';
 import { activeDialog } from '../../pages/ChatListPage/ChatListPage';
-import Store from "../../shared/classComponents/Store";
-import router from "../../shared/classComponents/Router";
+import Store from '../../shared/classComponents/Store';
+import router from '../../shared/classComponents/Router';
 
 export type wssConnectOptions = {
     userId: number | string,

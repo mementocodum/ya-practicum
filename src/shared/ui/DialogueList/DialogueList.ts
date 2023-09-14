@@ -58,7 +58,7 @@ class DialogsList extends Block {
             });
         });
         return compilesDialogs?.sort((a, b) => {
-            if(!a?.last_message_full_time || !b?.last_message_full_time) {
+            if (!a?.last_message_full_time || !b?.last_message_full_time) {
                 return 1;
             }
             if (a?.last_message_full_time > b?.last_message_full_time) {

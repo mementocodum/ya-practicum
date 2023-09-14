@@ -3,7 +3,7 @@
 import BaseController from './BaseController';
 import ChatsApi from '../../shared/api/ChatsApi';
 import MessageController from './MessageController';
-import Store from "../../shared/classComponents/Store";
+import Store from '../../shared/classComponents/Store';
 
 class ChatsController extends BaseController {
     public async getAllChats(): Promise<void> {
