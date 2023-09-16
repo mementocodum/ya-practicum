@@ -75,6 +75,6 @@ export default class HTTPTransport {
                 const sendData = data instanceof FormData ? data : JSON.stringify(data);
                 xhr.send(sendData);
             }
-        }).then((res) => ({ ...res, response: JSON.parse(res.response), status: res.status }));
+        }).then((res: any): unknown => ({ ...res, response: JSON.parse(res.response), status: res.status }));
     };
 }
