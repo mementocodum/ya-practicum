@@ -11,6 +11,7 @@ import MessageController from '../../app/controllers/MessageController';
 import ChatsController from '../../app/controllers/ChatsController';
 import UsersController from '../../app/controllers/UsersController';
 import SearchUsers from '../../shared/ui/SearchUsers/SearchUsers';
+import { onSubmit } from '../../shared/utils/validation/onSubmit';
 
 const { addNewChatUser, createChat } = ChatsController;
 const { searchUsers } = UsersController;
@@ -140,8 +141,7 @@ export const activeDialog = new DialogActive({
         })],
         events: {
             submit: (self: Form, e: Event) => {
-                e.preventDefault();
-                self.getFormData();
+                onSubmit(self, e);
                 self.resetForm();
                 self.getContent().focus();
             },

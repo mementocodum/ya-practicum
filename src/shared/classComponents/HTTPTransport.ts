@@ -12,7 +12,7 @@ type TOptions = {
     type?: string,
     timeout?: number
 }
-type HTTPMethod = (url: string, options?: TOptions) => Promise<unknown>
+type HTTPMethod = (url: string, options?: TOptions) => Promise<any>
 type HTTPRequest = (url: string, options?: TOptions, timeout?: number) => Promise<unknown | void>
 
 // eslint-disable-next-line no-undef
@@ -33,7 +33,7 @@ export default class HTTPTransport {
         this.baseUrl = baseUrl;
     }
 
-    public get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.GET }, options.timeout);
+    public get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.GET }, options.timeout).then((res: any): unknown => ({ status: res.status, response: JSON.parse(res.response) } as unknown));
 
     public post: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.POST }, options.timeout);
 

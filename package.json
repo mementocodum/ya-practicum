@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "start": "vite",
+    "start": "npm run build  && node ./server.js",
+    "start:dev": "vite",
     "prebuild": "tsc --noEmit && npm run lint:fix",
     "build": "vite build",
     "preview": "vite preview",

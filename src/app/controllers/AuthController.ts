@@ -12,7 +12,7 @@ class AuthController extends BaseController {
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);
@@ -42,7 +42,7 @@ class AuthController extends BaseController {
         try {
             const { status, response } = await authApi.getUser();
             if (status === 200 && response) {
-                this.store.set('user', JSON.parse(response));
+                this.store.set('user', response);
                 this.store.set('auth', true);
                 return true;
             }
@@ -62,7 +62,7 @@ class AuthController extends BaseController {
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log('error authController: ', e);

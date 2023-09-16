@@ -47,7 +47,7 @@ class DialogsList extends Block {
         dialogs.forEach((item) => {
             const out = item?.last_message?.user?.login === Store.getState()?.user?.login;
             compilesDialogs.push({
-                avatar: item.avatar ? item.avatar : avatarMock,
+                avatar: item.avatar ? `https://ya-praktikum.tech/api/v2/resources${item.avatar}` : avatarMock,
                 id: item.id,
                 title: item.title,
                 last_message_text: sliceLastMessage(item?.last_message?.content, out),

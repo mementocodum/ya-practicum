@@ -9,11 +9,11 @@ class UsersController extends BaseController {
             const { status, response } = await UsersApi.changeData(data);
             if (status === 200) {
                 alert('Изменения в профиль внесены!');
-                this.store.set('user', JSON.parse(response));
+                this.store.set('user', response);
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);
@@ -30,7 +30,7 @@ class UsersController extends BaseController {
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);
@@ -42,11 +42,11 @@ class UsersController extends BaseController {
         try {
             const { status, response } = await UsersApi.changeAvatar(file);
             if (status === 200) {
-                this.store.set('user', JSON.parse(response));
+                this.store.set('user', response);
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);
@@ -61,11 +61,11 @@ class UsersController extends BaseController {
         try {
             const { status, response } = await UsersApi.searchUser(value);
             if (status === 200) {
-                self.setProps({ items: JSON.parse(response) });
+                self.setProps({ items: response });
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);

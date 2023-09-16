@@ -13,12 +13,12 @@ export type wssConnectOptions = {
 };
 
 class MessageController {
-    public EVENTS: Record<string, string> = {
+    public EVENTS = {
         OPEN: 'open',
         MESSAGE: 'message',
         ERROR: 'error',
         CLOSE: 'close',
-    };
+    } as const;
 
     private _userId: number | string | undefined;
 
@@ -93,17 +93,17 @@ class MessageController {
     }
 
     private _addEvents() {
-        this.socket?.addEventListener('open', this._handleOpen);
-        this.socket?.addEventListener('message', this._handleMassage);
-        this.socket?.addEventListener('error', this._handleError);
-        this.socket?.addEventListener('close', this._handleClose);
+        this.socket?.addEventListener(this.EVENTS.OPEN, this._handleOpen);
+        this.socket?.addEventListener(this.EVENTS.MESSAGE, this._handleMassage);
+        this.socket?.addEventListener(this.EVENTS.ERROR, this._handleError);
+        this.socket?.addEventListener(this.EVENTS.CLOSE, this._handleClose);
     }
 
     private _removeEvents() {
-        this.socket?.removeEventListener('open', this._handleOpen);
-        this.socket?.removeEventListener('message', this._handleMassage);
-        this.socket?.removeEventListener('error', this._handleError);
-        this.socket?.removeEventListener('close', this._handleClose);
+        this.socket?.removeEventListener(this.EVENTS.OPEN, this._handleOpen);
+        this.socket?.removeEventListener(this.EVENTS.MESSAGE, this._handleMassage);
+        this.socket?.removeEventListener(this.EVENTS.ERROR, this._handleError);
+        this.socket?.removeEventListener(this.EVENTS.CLOSE, this._handleClose);
     }
 
     private async getToken(chatID: number) {

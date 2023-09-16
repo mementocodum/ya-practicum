@@ -28,14 +28,13 @@ class DialogActive extends Block {
         return props;
     }
 
-    constructor(allProps: TProps) {
-        const props: TProps = {
-            ...allProps,
-            messages: '',
-            avatar: allProps.avatar ? allProps.avatar : avatarMock,
+    constructor(props: TProps) {
+        const convProps: TProps = {
+            ...props,
+            avatar: props.avatar ? props.avatar : avatarMock,
         };
 
-        super('div', props, dialogueTemplate);
+        super('div', convProps, dialogueTemplate);
     }
 
     public scrollBottom(): void {

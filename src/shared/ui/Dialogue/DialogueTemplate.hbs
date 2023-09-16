@@ -1,7 +1,7 @@
 {{#if currentChat}}
     <div class="topControls">
         <div class="avatar"> <img src="{{avatar}}" alt="Аватар пользователя {{login}}"> </div>
-        <div class="login">{{login}}</div>
+        <div class="login">{{currentChat.title}}</div>
         <div class="controlButton">
             {{{btn}}}
         </div>
@@ -12,10 +12,10 @@
                 <div class="dialogDateItem">{{this.dateGroup}}</div>
             {{else }}
                 <div class="{{this.msgClass}}">
-                    {{#if this.content }}
+                    {{#if this.content}}
                         <div class="message-text">{{this.content}}</div>
                     {{/if}}
-                    {{#if this.file }}
+                    {{#if this.file}}
                         <div class="message-media"><img src="{{this.file}}" alt="Вложение"></div>
                     {{/if}}
 
