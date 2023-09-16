@@ -31,7 +31,7 @@ class AuthController extends BaseController {
             } else if (status === 500) {
                 this.router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);

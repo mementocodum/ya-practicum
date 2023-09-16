@@ -110,11 +110,11 @@ class MessageController {
         try {
             const { status, response } = await ChatsApi.getToken(chatID);
             if (status === 200) {
-                return JSON.parse(response).token;
+                return response.token;
             } if (status === 500) {
                 router.go('/500');
             } else {
-                alert(JSON.parse(response).reason ?? 'Ошибочный запрос');
+                alert(response.reason ?? 'Ошибочный запрос');
             }
         } catch (e) {
             console.log(e);

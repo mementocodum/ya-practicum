@@ -33,8 +33,7 @@ export default class HTTPTransport {
         this.baseUrl = baseUrl;
     }
 
-    public get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.GET }, options.timeout).then((res: any): unknown => ({ status: res.status, response: JSON.parse(res.response) } as unknown));
-
+    public get: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.GET }, options.timeout);
     public post: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.POST }, options.timeout);
 
     public put: HTTPMethod = (url = '', options: TOptions = {}) => this.request(this.baseUrl + url, { ...options, type: QUERY_TYPE.PUT }, options.timeout);
@@ -75,6 +74,7 @@ export default class HTTPTransport {
                 const sendData = data instanceof FormData ? data : JSON.stringify(data);
                 xhr.send(sendData);
             }
-        });
+        }).then(res => {
+        return {...res, response: JSON.parse(res.response), status: res.status};});
     };
 }
