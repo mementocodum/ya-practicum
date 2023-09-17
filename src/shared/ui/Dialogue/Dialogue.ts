@@ -6,6 +6,8 @@ import './Dialogue.scss';
 import Store, { Chat, State } from '../../classComponents/Store';
 import { parseDateAndTime } from '../../utils/parseDateAndTime';
 import { connect } from '../../utils/connectHOC';
+import ChatsController from '../../../app/controllers/ChatsController';
+import Button from '../Button/button';
 
 class DialogActive extends Block {
     currentChat: any;
@@ -18,6 +20,7 @@ class DialogActive extends Block {
         if (state?.chats) {
             props = {
                 currentChat: state?.currentChat?.chat,
+                users: state?.currentChat?.users,
                 messages: state.currentChat.messages,
                 scroll: state.currentChat.scroll,
                 attr: {
@@ -29,9 +32,24 @@ class DialogActive extends Block {
     }
 
     constructor(props: TProps) {
+        const { currentChat } = Store.getState();
         const convProps: TProps = {
             ...props,
             avatar: props.avatar ? props.avatar : avatarMock,
+            userButtons: new Button({
+                attr: {
+                    class: 'buttonDelete',
+                },
+                text: 'Удалить пользователя',
+                events: {
+                    click: () => {
+                        const promt = prompt(`Выберите id удаляемого пользователя${currentChat?.users?.map((user) => ` id: ${user.id}; login: ${user.login}`)}`);
+                        if (promt) {
+                            ChatsController.deleteUser(Number(currentChat?.chat?.id), Number(promt));
+                        }
+                    },
+                },
+            }),
         };
 
         super('div', convProps, dialogueTemplate);

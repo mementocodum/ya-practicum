@@ -19,6 +19,7 @@ export type State = {
         scroll: number,
         chat: null | Chat,
         messages: Array<Chat> | null,
+        users: Array<any> | null,
     },
 };
 
@@ -35,6 +36,7 @@ class Store extends EventBus {
             scroll: 0,
             chat: null,
             messages: null,
+            users: null,
         },
     };
 
@@ -65,6 +67,7 @@ class Store extends EventBus {
                     scroll: 0,
                     chat: null,
                     messages: null,
+                    users: null,
                 },
             };
             this.emit(StoreEvents.Updated);

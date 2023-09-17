@@ -85,6 +85,27 @@ class ChatsController extends BaseController {
         return false;
     }
 
+    public async deleteUser(id: number, user: number): Promise<boolean> {
+        if (!id || !user) return false;
+        try {
+            if (!confirm(`Вы хотите удалить ${user} из чата, продолжить?`)) {
+                return false;
+            }
+            const { status, response } = await ChatsApi.deleteUsers(id, [user]);
+            if (status === 200) {
+                return true;
+            } if (status === 500) {
+                this.router.go('/500');
+                return false;
+            }
+            alert(response.reason ?? 'Ошибочный запрос');
+            return false;
+        } catch (e) {
+            console.log(e);
+        }
+        return false;
+    }
+
     public async addNewChatUser(user: Record<string, string | number>): Promise<boolean | void> {
         const { display_name, login, id } = user;
         let chat = this?.store?.getState()?.currentChat?.chat?.id;

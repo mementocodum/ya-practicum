@@ -39,9 +39,17 @@ class ChatsApi extends BaseAPI {
         });
     }
 
-    public deleteUsers(data: TOptionsData): Promise<any> {
+    public deleteUsers(chatId: number, users: Array<number>): Promise<any> {
         return this.http.delete('/users', {
-            data,
+            data: { chatId, users },
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+    }
+
+    public getChatUsers(chatId: number): Promise<any> {
+        return this.http.get(`/${chatId}/users`, {
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },

@@ -83,12 +83,17 @@ class MessageController {
     public async changeCurrentChat(id: number | undefined | string): Promise<void> {
         if (!id) return;
         const chat = searchObjInArray(Store.getState().chats, 'id', Number(id));
+
         if (chat && chat?.id !== Store?.getState()?.currentChat?.chat?.id) {
             Store.set('currentChat.isLoading', true);
             Store.set('currentChat.chat', chat);
 
             await this.disconnect();
-            this.connect();
+            await this.connect();
+            const chatUsers = await ChatsApi.getChatUsers(Number(chat?.id));
+            if (chatUsers && chatUsers?.response.length) {
+                Store.set('currentChat.users', chatUsers.response);
+            }
         }
     }
 
