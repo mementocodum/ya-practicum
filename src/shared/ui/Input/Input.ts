@@ -1,4 +1,4 @@
-import block from '../../classComponents/block';
+import block from '../../classComponents/Block';
 import './input.scss';
 import templateInput from './InputTemplate.hbs';
 
@@ -50,6 +50,13 @@ export default class Input extends block {
     setCurrentValue(self: Input, e: Event): void {
         const target = e?.target as HTMLInputElement;
         self.currentValue = target.value;
+    }
+
+    reset(): void {
+        const element = this.getContent().querySelector('input') as HTMLInputElement | null;
+        if (!element) return;
+        element.value = '';
+        this.currentValue = '';
     }
 
     _addEvents(): void {

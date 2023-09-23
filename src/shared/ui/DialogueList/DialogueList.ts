@@ -1,42 +1,76 @@
-import Block, { TProps } from '../../classComponents/block';
+import Block, { TProps } from '../../classComponents/Block';
 import dialogueListTemplate from './DialogueListTemplate.hbs';
-import { TDialog } from '../../../pages/ChatListPage/ChatListPage';
 import { sliceLastMessage } from '../../utils/messagePrefix';
 import './DialogueList.scss';
 import avatarMock from '../../../../static/Union.svg';
+import Store, { Chat, State } from '../../classComponents/Store';
+import { connect } from '../../utils/connectHOC';
+import { parseDateAndTime } from '../../utils/parseDateAndTime';
 
 type TDialogItem = {
-    avatar: string,
-    dialogId: string,
-    login: string,
-    lastMessage: string,
-    timeLastMessage: string,
-    countNewMessage: string | number,
+    avatar: string | null,
+    id: number,
+    title: string,
+    last_message?: Record<string, string | number | unknown | any> | null,
+    last_message_text?: string,
+    last_message_time?: string,
+    last_message_full_time?: Date;
+    unread_count: number,
     itemClass: string,
 }
-export default class DialogsList extends Block {
-    constructor(props: TProps) {
-        super('div', props, dialogueListTemplate);
+class DialogsList extends Block {
+    dialogs: Array<Chat> | [] = [];
+
+    constructor() {
+        super('div', {
+            attr: {
+                class: 'dialogs',
+            },
+
+        }, dialogueListTemplate);
     }
 
-    dialogListCompile(dialogs: Array<TDialog> = []): Array<TDialogItem> | [] {
+    static mapStateToProps(state: State): TProps {
+        let props = {
+        };
+        if (state?.chats) {
+            props = {
+                dialogs: state.chats,
+                activeDialog: state?.currentChat?.chat?.id,
+            };
+        }
+        return props;
+    }
+
+    convertDialogsList(dialogs: Array<TDialogItem> = []): Array<TDialogItem> | [] {
         const compilesDialogs: Array<TDialogItem> | undefined = [];
         dialogs.forEach((item) => {
+            const out = item?.last_message?.user?.login === Store.getState()?.user?.login;
             compilesDialogs.push({
-                avatar: item.avatar ? item.avatar : avatarMock,
-                dialogId: item.id,
-                login: item.login,
-                lastMessage: sliceLastMessage(item.lastMsg.text, item.lastMsg.type),
-                timeLastMessage: item.lastMsg.date,
-                countNewMessage: item.newMsg,
-                itemClass: item.id === this.props.active ? 'active' : '',
+                avatar: item.avatar ? `https://ya-praktikum.tech/api/v2/resources${item.avatar}` : avatarMock,
+                id: item.id,
+                title: item.title,
+                last_message_text: sliceLastMessage(item?.last_message?.content, out),
+                last_message_time: parseDateAndTime(item?.last_message?.time)?.time,
+                last_message_full_time: new Date(item?.last_message?.time),
+                unread_count: item.unread_count ?? 99,
+                itemClass: item.id === this.props.activeDialog ? 'active' : '',
             });
         });
-        return compilesDialogs;
+        return compilesDialogs?.sort((a, b) => {
+            if (!a?.last_message_full_time || !b?.last_message_full_time) {
+                return 1;
+            }
+            if (a?.last_message_full_time > b?.last_message_full_time) {
+                return -1;
+            } return 1;
+        }) || [];
     }
 
     render() {
-        const dialogs = this.dialogListCompile(this.props.dialogs);
+        const dialogs = this.convertDialogsList(this.props.dialogs);
         return this.compile({ ...this.props, dialogs });
     }
 }
+
+export default connect(DialogsList);

@@ -1,15 +1,45 @@
-<div onclick='history.back()' class="{{classes.goBackBtn}}"></div>
-<div class={{classes.profileWrapper}}>
-    <div class={{classes.userAvatar}}>
-        <div class={{classes.userAvatarImg}}>
+<div onclick='history.back()' class="goBackBtn"></div>
+<div class=profileWrapper>
+    <div class=userAvatar>
+        <div class=userAvatarImg>
             <img src="{{{avatarImg}}}" alt="Аватар пользователя">
             {{{avatarUpload}}}
         </div>
     </div>
-    <div class={{classes.profileFieldsWrapper}}>
-        {{{listDataProfile}}}
+    <div class=profileFieldsWrapper>
+        <ul class=listFlex>
+            <li>
+                <span>Почта</span>
+                <span>{{listDataProfile.email}}</span>
+            </li>
+            <li>
+                <span>Логин</span>
+                <span>{{listDataProfile.login}}</span>
+
+            </li>
+            <li>
+                <span>Имя</span>
+                <span>{{listDataProfile.first_name}}</span>
+
+            </li>
+            <li>
+                <span>Фамилия</span>
+                <span>{{listDataProfile.second_name}}</span>
+
+            </li>
+            <li>
+                <span>Имя в чате</span>
+                <span>{{listDataProfile.display_name}}</span>
+            </li>
+            <li>
+                <span>Телефон</span>
+                <span>{{listDataProfile.phone}}</span>
+            </li>
+        </ul>
+        {{{editProfileData}}}
+        {{{editProfilePassword}}}
     </div>
-    <div class="{{classes.profileFields}} buttons-hide">
+    <div class="profileFields">
         {{{buttons}}}
     </div>
 </div>

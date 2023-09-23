@@ -1,5 +1,5 @@
 import { v4 as makeUUID } from 'uuid';
-import EventBus from './eventBus';
+import EventBus from './EventBus';
 
 export interface TProps {
     [index: string]: any,
@@ -19,7 +19,7 @@ export default class Block {
 
     // private _reRender: boolean;
 
-    private _prevProps: TProps;
+    public _prevProps: TProps;
 
     public _element: HTMLElement;
 

@@ -1,11 +1,11 @@
 import * as cls from './RegistrationPage.module.scss';
 import registrationPageTemplate from './RegistrationPageTemplate.hbs';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block from '../../shared/classComponents/Block';
 import Form from '../../shared/ui/Form/form';
 import { onFocus } from '../../shared/utils/validation/onFocus';
 import { onBlur } from '../../shared/utils/validation/onBlur';
 import { onSubmit } from '../../shared/utils/validation/onSubmit';
-import Input from '../../shared/ui/Input/input';
+import Input from '../../shared/ui/Input/Input';
 import {
     EMAIL_REGEXP,
     FIRST_NAME_REGEXP,
@@ -14,10 +14,17 @@ import {
 } from '../../shared/utils/validation/constants';
 import Button from '../../shared/ui/Button/button';
 import Link from '../../shared/ui/Link/link';
+import AuthController from '../../app/controllers/AuthController';
+import { connect } from '../../shared/utils/connectHOC';
 
 export default class RegPage extends Block {
-    constructor(props: TProps, templator: Function) {
-        super('main', props, templator);
+    constructor() {
+        const props = {
+            classes: cls,
+            form: pageForm,
+        };
+
+        super('main', props, registrationPageTemplate);
     }
 
     render() {
@@ -39,6 +46,7 @@ const pageForm = new Form({
         class: cls.form,
         action: '',
     },
+    controller: AuthController.createUser.bind(AuthController),
     events: {
         focusin: onFocus,
         focusout: onBlur,
@@ -147,16 +155,11 @@ const pageForm = new Form({
             text: 'Войти',
             attr: {
                 class: 'registerButton link',
-                href: '/login',
+                href: '/',
             },
         }),
     ],
 
 });
 
-const registrationPage = new RegPage({
-    classes: cls,
-    form: pageForm,
-}, registrationPageTemplate);
-
-export const RegistrationPage = () => registrationPage.getContent();
+export const RegistrationPage = () => connect(RegPage);

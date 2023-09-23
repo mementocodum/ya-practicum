@@ -1,18 +1,38 @@
 import * as cls from './LoginPage.module.scss';
 import loginPageTemplate from './LoginPageTemplate.hbs';
-import Block, { TProps } from '../../shared/classComponents/block';
+import Block from '../../shared/classComponents/Block';
 import Form from '../../shared/ui/Form/form';
-import Input from '../../shared/ui/Input/input';
+import Input from '../../shared/ui/Input/Input';
 import Button from '../../shared/ui/Button/button';
 import { LOGIN_REGEXP, PASSWORD_REGEXP } from '../../shared/utils/validation/constants';
 import Link from '../../shared/ui/Link/link';
 import { onFocus } from '../../shared/utils/validation/onFocus';
 import { onBlur } from '../../shared/utils/validation/onBlur';
 import { onSubmit } from '../../shared/utils/validation/onSubmit';
+import { State } from '../../shared/classComponents/Store';
+import { connect } from '../../shared/utils/connectHOC';
+import AuthController from '../../app/controllers/AuthController';
 
 export default class AuthPage extends Block {
-    constructor(props: TProps, templator: Function) {
-        super('main', props, templator);
+    constructor() {
+        const props = {
+            classes: cls,
+            form: pageForm,
+        };
+        super('main', props, loginPageTemplate);
+    }
+
+    static mapStateToProps(state: State) {
+        let props = {
+        };
+        if (state?.chats) {
+            props = {
+                attr: {
+                    class: `app__auth-page ${state?.isLoading ? 'loading' : ''} ${state.currentChat?.isLoadingOldMsg ? 'loadingOldMsg' : ''}`,
+                },
+            };
+        }
+        return props;
     }
 
     render() {
@@ -26,6 +46,7 @@ const pageForm = new Form({
         class: cls.form,
         action: '',
     },
+    controller: AuthController.login.bind(AuthController),
     events: {
         focusin: onFocus,
         focusout: onBlur,
@@ -79,16 +100,11 @@ const pageForm = new Form({
             text: 'Нет аккаунта?',
             attr: {
                 class: 'registerButton link',
-                href: '/register',
+                href: '/sign-up',
             },
         }),
     ],
 
 });
 
-const authPage = new AuthPage({
-    form: pageForm,
-    classes: cls,
-}, loginPageTemplate);
-
-export const LoginPage = () => authPage.getContent();
+export const LoginPage = () => connect(AuthPage);
