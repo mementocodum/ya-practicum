@@ -20,7 +20,16 @@
     "noImplicitReturns": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "allowImportingTsExtensions": true
+  },
+  "ts-node": {
+    "files": true,
+    "compilerOptions": {
+      "module": "ESNext",
+      "target": "ES6",
+      "moduleResolution": "nodenext"
+    }
   },
   "exclude": ["node_modules"]
 }
