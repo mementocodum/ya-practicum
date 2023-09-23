@@ -2,29 +2,43 @@
   "name": "chatPracticum",
   "private": true,
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "start": "vite",
+    "start": "npm run build  && node ./server.js",
+    "start:dev": "vite",
     "prebuild": "tsc --noEmit && npm run lint:fix",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx,js}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx,js}\" --fix",
-    "stylelint": "npx stylelint \"**/*.*css\" --fix"
+    "stylelint": "npx stylelint \"**/*.*css\" --fix",
+    "test": "mocha -r ts-node/register **/*.spec.ts"
   },
   "engines": {
     "npm": ">=7.0.0 <9.0.0",
     "node": ">=14.0.0 <17.0.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.22.15",
+    "@types/chai": "^4.3.6",
     "@types/handlebars": "^4.1.0",
+    "@types/mocha": "^10.0.1",
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
+    "chai": "^4.3.8",
+    "date-fns": "2.23.0",
     "eslint": "^8.43.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
     "express": "^4.18.2",
     "handlebars": "^4.7.7",
+    "husky": "^8.0.0",
+    "mocha": "^10.2.0",
+    "sinon": "^16.0.0",
+    "sinon-chai": "^3.7.0",
+    "sinon-chai-es": "^3.7.0",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.62.1",
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^10.0.0",
@@ -34,7 +48,16 @@
     "vite-plugin-handlebars": "^1.6.0"
   },
   "dependencies": {
-    "date-fns": "2.23.0",
-    "express-handlebars": "^7.0.7"
+    "@types/sinon-chai": "^3.2.9",
+    "express-handlebars": "^7.0.7",
+    "node-esm-loader": "^0.2.3",
+    "esm-loader-typescript": "^1.0.5",
+    "jsdom": "^22.1.0",
+    "ts-node": "^10.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint:fix stylelint"
+    }
   }
 }
