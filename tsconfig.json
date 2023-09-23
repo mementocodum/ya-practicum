@@ -26,9 +26,10 @@
   "ts-node": {
     "files": true,
     "compilerOptions": {
-      "module": "ESNext",
+      "module": "commonjs",
       "target": "ES6",
-      "moduleResolution": "nodenext"
+      "moduleResolution": "node",
+      "esModuleInterop": true
     }
   },
   "exclude": ["node_modules"]

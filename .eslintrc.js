@@ -26,5 +26,6 @@ module.exports = {
         'no-undef': 'off',
         'no-restricted-globals': 'off',
         'no-plusplus': 'off',
+        'no-unused-expressions': 'off',
     },
 };

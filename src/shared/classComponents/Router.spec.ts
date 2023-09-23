@@ -1,6 +1,6 @@
-import router from './Router.ts';
-import Block from './Block.ts';
-import {expect} from "chai";
+import { expect } from 'chai';
+import router from './Router';
+import Block from './Block';
 
 describe('Router tests', () => {
     it('Router go', () => {
