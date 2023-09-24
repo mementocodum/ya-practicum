@@ -7,14 +7,14 @@ describe('Router tests', () => {
         router.go('/sign-up');
         expect(window.location.pathname).to.eq('/sign-up');
     });
-    test('Router back', () => {
+    it('Router back', () => {
         router.go('/sign-up');
         setTimeout(() => {
             router.back();
             expect(window.location.pathname).to.eq('/');
         }, 3000);
     });
-    test('Router use', () => {
+    it('Router use', () => {
         router.use('/test', Block);
         expect(router.getRoute('/test') !== undefined).to.be.true;
     });
