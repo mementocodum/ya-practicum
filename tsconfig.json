@@ -20,7 +20,17 @@
     "noImplicitReturns": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "allowImportingTsExtensions": true
+  },
+  "ts-node": {
+    "files": true,
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "ES6",
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    }
   },
   "exclude": ["node_modules"]
 }
