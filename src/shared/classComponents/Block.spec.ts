@@ -1,5 +1,5 @@
-import Block, {TProps} from "./Block";
-import {expect} from "chai";
+import { expect } from 'chai';
+import Block, { TProps } from './Block';
 
 class TestBlock extends Block {
     constructor(props: TProps | undefined) {

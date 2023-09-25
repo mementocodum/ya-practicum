@@ -1,7 +1,7 @@
-import sinonChai from "sinon-chai";
-import {createSandbox, SinonStub} from "sinon";
-import HTTPTransport from "./HTTPTransport";
-import {expect, use} from "chai";
+import sinonChai from 'sinon-chai';
+import { createSandbox, SinonStub } from 'sinon';
+import { expect, use } from 'chai';
+import HTTPTransport from './HTTPTransport';
 
 describe('Test HTTPTransport', () => {
     use(sinonChai);
@@ -23,7 +23,7 @@ describe('Test HTTPTransport', () => {
 
         transport.get(url);
 
-        expect(request).calledWithMatch(url, {type: 'GET'});
+        expect(request).calledWithMatch(url, { type: 'GET' });
     });
 
     it('test post method', () => {
@@ -66,7 +66,7 @@ describe('Test HTTPTransport', () => {
             timeout: 5000,
         };
 
-        transport.delete(url,testOptions);
+        transport.delete(url, testOptions);
 
         expect(request).calledWithMatch(url, { ...testOptions, type: 'DELETE' });
     });
