@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
+    "prepare" : "husky install",
     "start": "npm run build  && node ./server.js",
     "start:dev": "vite",
     "prebuild": "tsc --noEmit && npm run lint:fix",
@@ -37,7 +38,6 @@
     "sinon": "^16.0.0",
     "sinon-chai": "^3.7.0",
     "sinon-chai-es": "^3.7.0",
-    "npm-run-all": "^4.1.5",
     "sass": "^1.62.1",
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^10.0.0",
@@ -52,11 +52,7 @@
     "node-esm-loader": "^0.2.3",
     "esm-loader-typescript": "^1.0.5",
     "jsdom": "^22.1.0",
-    "ts-node": "^10.9.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all test lint:fix stylelint"
-    }
+    "ts-node": "^10.9.1",
+    "npm-run-all": "^4.1.5"
   }
 }

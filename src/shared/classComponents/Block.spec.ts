@@ -13,7 +13,7 @@ class TestBlock extends Block {
 
 const testChildren = new TestBlock({ text: 'child' });
 
-describe('sum module', () => {
+describe('Test Block', () => {
     it('Create components test', () => {
         const testBlock = new TestBlock({ text: 'test text' });
         expect(testBlock.getContent().outerHTML).to.be.eq('<div>test text</div>');
