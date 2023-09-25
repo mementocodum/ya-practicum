@@ -7,10 +7,10 @@ https://deploy-preview-5--fancy-fairy-40dcd7.netlify.app
 
 ## Описание
 
-Задание первых спринтов на практикуме. Разработано с использованием шаблонизаторов.
+Задание по созданию чата на практикуме. Разработано с использованием шаблонизаторов.
 Готовое приложение можно найти тут:
 
-https://deploy-preview-3--fancy-fairy-40dcd7.netlify.app
+https://deploy-preview-5--fancy-fairy-40dcd7.netlify.app
 ## Установка
 
 - `npm install` — установка стабильной версии,
